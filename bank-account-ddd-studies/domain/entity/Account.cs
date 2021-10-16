@@ -36,7 +36,7 @@ namespace bank_account_ddd_studies.domain.entity
 
         private void ValidateIfCanDebit(decimal debitAmount)
         {
-            var currenteBalance = getCurrentBalance();
+            var currenteBalance = GetCurrentBalance();
 
             if (debitAmount > currenteBalance)
             {
@@ -44,7 +44,7 @@ namespace bank_account_ddd_studies.domain.entity
             }
         }
 
-        public decimal getCurrentBalance()
+        public decimal GetCurrentBalance()
         {
             return Transactions.Aggregate(0m, (balance, transaction) =>
             {
