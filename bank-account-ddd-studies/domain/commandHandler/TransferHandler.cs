@@ -7,11 +7,11 @@ namespace bank_account_ddd_studies.domain.commandHandler
     public class TransferHandler : IHandler
     {
         private readonly IAccountRepository _accountRepository;
-        private readonly TransferService _transferService;
+        private readonly ITransferService _transferService;
 
         public string Operation => "Transfer";
 
-        public TransferHandler(IAccountRepository accountRepository, TransferService transferService)
+        public TransferHandler(IAccountRepository accountRepository, ITransferService transferService)
         {
             _accountRepository = accountRepository;
             _transferService = transferService;

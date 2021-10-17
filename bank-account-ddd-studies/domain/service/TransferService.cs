@@ -2,7 +2,7 @@
 
 namespace bank_account_ddd_studies.domain.service
 {
-    public class TransferService
+    public class TransferService : ITransferService
     {
         public void Transfer(Account from, Account to, decimal amount)
         {
