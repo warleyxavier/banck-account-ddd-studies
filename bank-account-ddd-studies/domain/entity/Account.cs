@@ -7,6 +7,7 @@ namespace bank_account_ddd_studies.domain.entity
 {
     public class Account
     {
+        public string Id { get; set; }
         public List<Transaction> Transactions { get; }
 
         public Account()

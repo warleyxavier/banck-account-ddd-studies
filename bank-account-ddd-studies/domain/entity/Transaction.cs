@@ -4,6 +4,7 @@ namespace bank_account_ddd_studies.domain.entity
 {
     public class Transaction
     {
+        public string Id { get; set; }
         public TransactionType Type { get; set; }
         public decimal Amount { get; set; }
 
