@@ -9,34 +9,36 @@ using Xunit;
 
 namespace Tests.domain.commandHandler
 {
-    public class CreditHandlerTests
+    public class DebitHandlerTests
     {
         private readonly Fixture _fixture = new();
         private readonly Mock<IAccountRepository> _accountRepository = new();
-        private readonly DeditHandler _handler;
+        private readonly DebitHandler _handler;
 
-        public CreditHandlerTests()
+        public DebitHandlerTests()
         {
-            _handler = new DeditHandler(_accountRepository.Object);
+            _handler = new DebitHandler(_accountRepository.Object);
         }
 
         [Fact]
         public void Execute_GivenACommandWithExistingAccount_ShouldExecuteAsExpected()
         {
             var account = new Account();
-            var command = _fixture.Create<CreditCommand>();
+            account.Credit(2000m);
+
+            var command = new DebitCommand("46587f43h6564", 1500m);
 
             _accountRepository.Setup(a => a.Get(command.AccountId)).Returns(account);
 
             _handler.Execute(command);
 
-            account.GetCurrentBalance().Should().Be(command.Amount);
+            account.GetCurrentBalance().Should().Be(500m);
         }
 
         [Fact]
         public void Execute_GivenACommandWithNonExistentAccount_ShouldNotThrowNullReferenceException()
         {
-            var command = _fixture.Create<CreditCommand>();
+            var command = _fixture.Create<DebitCommand>();
 
             _accountRepository.Setup(a => a.Get(command.AccountId)).Returns(null as Account);
 
@@ -48,7 +50,7 @@ namespace Tests.domain.commandHandler
         [Fact]
         public void OperationIdentifier_GivenACommandAndHisHandler_ShouldHasTheSameOperation()
         {
-            var command = _fixture.Create<CreditCommand>();
+            var command = _fixture.Create<DebitCommand>();
 
             _handler.Operation.Should().Be(command.Operation);
         }
