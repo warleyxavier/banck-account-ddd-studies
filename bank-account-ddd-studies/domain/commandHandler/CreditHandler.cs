@@ -3,13 +3,13 @@ using bank_account_ddd_studies.domain.repository;
 
 namespace bank_account_ddd_studies.domain.commandHandler
 {
-    public class DeditHandler : IHandler
+    public class creditHandler : IHandler
     {
         private readonly IAccountRepository _accountRepository;
         
         public string Operation => "Credit";
 
-        public DeditHandler(IAccountRepository accountRepository)
+        public creditHandler(IAccountRepository accountRepository)
         {
             _accountRepository = accountRepository;
         }

@@ -13,11 +13,11 @@ namespace Tests.domain.commandHandler
     {
         private readonly Fixture _fixture = new();
         private readonly Mock<IAccountRepository> _accountRepository = new();
-        private readonly DeditHandler _handler;
+        private readonly creditHandler _handler;
 
         public CreditHandlerTests()
         {
-            _handler = new DeditHandler(_accountRepository.Object);
+            _handler = new creditHandler(_accountRepository.Object);
         }
 
         [Fact]
