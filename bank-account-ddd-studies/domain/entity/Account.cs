@@ -15,6 +15,11 @@ namespace bank_account_ddd_studies.domain.entity
             Transactions = new List<Transaction>();
         }
 
+        public Account(string id) : this()
+        {
+            Id = id;
+        }
+
         public Transaction Credit(decimal amount)
         {
             var transaction = new Transaction(TransactionType.Credit, amount);
