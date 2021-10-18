@@ -1,6 +1,6 @@
 ﻿using bank_account_ddd_studies.domain.command;
 using bank_account_ddd_studies.domain.commandHandler;
-using bank_account_ddd_studies.infra;
+using bank_account_ddd_studies.infra.publisher;
 using Moq;
 using Xunit;
 

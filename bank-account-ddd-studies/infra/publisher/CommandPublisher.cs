@@ -2,7 +2,7 @@
 using bank_account_ddd_studies.domain.commandHandler;
 using System.Collections.Generic;
 
-namespace bank_account_ddd_studies.infra
+namespace bank_account_ddd_studies.infra.publisher
 {
     public class CommandPublisher
     {
