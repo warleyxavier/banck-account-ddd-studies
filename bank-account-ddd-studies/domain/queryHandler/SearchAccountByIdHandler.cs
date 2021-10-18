@@ -17,9 +17,9 @@ namespace bank_account_ddd_studies.domain.queryHandler
 
         public T Search<T>(IQuery query)
         {
-            var searchAccount = (SearchAccountById)query;
+            var searchAccount = (SearchAccountByIdQuery)query;
 
-            var account = _accountRepository.Get(searchAccount.Id) is T;
+            var account = _accountRepository.Get(searchAccount.Id);
 
             return (T)Convert.ChangeType(account, typeof(T));
         }
