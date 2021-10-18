@@ -4,7 +4,7 @@ using bank_account_ddd_studies.infra.publisher;
 using Moq;
 using Xunit;
 
-namespace Tests.infra
+namespace Tests.infra.publisher
 {
     public class CommandPublisherTests
     {
